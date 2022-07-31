@@ -15,7 +15,7 @@
                 <div class="text-white">
                   <h1 class="mb-3">News at your doorstep</h1>
                   <h4 class="mb-3">Start your subscription today</h4>
-                  <a class="btn btn-outline-light btn-lg" style="background-color: #3FC4E7; border: none;" href="#!" role="button"
+                  <a class="btn btn-outline-light btn-lg"  style="background-color: #3FC4E7; border: none;" href="{{ route('subscribe') }}" role="button"
                   >Subscribe</a
                   >
               </div>
