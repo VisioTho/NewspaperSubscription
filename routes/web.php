@@ -22,4 +22,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/subscribe', [App\Http\Controllers\SubscriprtionFormController::class, 'create'])->name('subscribe');
 Route::get('/newspaper', [App\Http\Controllers\NewsPaperController::class, 'show'])->name('newspaper');
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'Show'])->name('admin');
 

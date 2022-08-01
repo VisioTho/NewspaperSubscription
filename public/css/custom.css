@@ -15,23 +15,23 @@ body {
 .check-card {
 	list-style: none;
 	margin: 40px auto;
-
-    width: 400px;
-    height: 200px;
+    display: flex;
+    width: 800px;
 
 }
 .check-card .check-card-item {
 	position: relative;
-    height: 150px;
+    height: 120px;
 	width: 100%;
-	margin: 0 1% 15px;
+	margin: 0 1% 5px;
 	border-radius: 5px;
 	font-size: 16px;
-	background: #3FC4E7;
+	background: white;
+	box-shadow: 2px 1px 5px rgba(2,2,2,0.3);
 	overflow: hidden;
 }
-.check-card li{
-
+.check-card-description{
+    color: #3FC4E7;
 }
 .check-card li label {
 	display: block;
@@ -54,6 +54,7 @@ body {
 .check-card .check-card-title {
 	font-family: 'Oswald', sans-serif;
 	font-size: 20px;
+	color: #3FC4E7;
 	margin-bottom: 5px;
 }
 .check-card .check-card-bg,
@@ -110,6 +111,10 @@ body {
 }
 .check-card input[type=checkbox] {
 	display: none;
+}
+.check-card input[type=radio]{
+    bottom:30px;
+    left:30px;
 }
 .check-card input[type=checkbox]:checked ~ .check-card-body .check-card-toggle span {
 	-webkit-transform: rotate(0deg);

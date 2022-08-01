@@ -54,6 +54,29 @@
                         </div>
 
                         <div class="row mb-3">
+                            <label for="city" class="col-md-4 col-form-label text-md-end">City/Town</label>
+
+                            <div class="col-md-6">
+                                <select name="city" class="form-control" id="city">
+                                  <option value="Lilongwe">Lilongwe</option>
+                                  <option value="Mzuzu">Mzuzu</option>
+                                  <option value="Balaka">Balaka</option>
+                                  <option value="Neno">Neno</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="address" class="col-md-4 col-form-label text-md-end">Address</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control @error('password') is-invalid @enderror" name="address">
+
+
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -77,7 +100,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" style="background-color:#3FC4E7; border:none;">
                                     {{ __('Register') }}
                                 </button>
                             </div>
