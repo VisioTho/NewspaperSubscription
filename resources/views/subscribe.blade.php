@@ -74,7 +74,7 @@
 <p><input class="form-control" id="numberofcopies" type="number"  value = "1" name="numberofcopies" oninput="SetNumberOfCopies(this.value);"></p>
   </div>
 
-  <p id="subtotal">Sub-Total: MWK</p>
+  <p id="subtotal"></p>
 
   <div class="tab">Address:
   <div class="row mb-3">
@@ -97,9 +97,35 @@
     <p><input placeholder="mm" oninput="this.className = ''" name="nn"></p>
     <p><input placeholder="yyyy" oninput="this.className = ''" name="yyyy"></p>
   </div>
-  <div class="tab">Login Info:
-    <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
-    <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
+  <div class="tab">Payment:
+   <div class="col-50">
+               <h3>Payment</h3>
+               <label for="fname">Accepted Cards</label>
+               <div class="icon-container">
+                 <i class="fa fa-cc-visa" style="color:navy;"></i>
+                 <i class="fa fa-cc-amex" style="color:blue;"></i>
+                 <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                 <i class="fa fa-cc-discover" style="color:orange;"></i>
+               </div>
+               <label for="cname">Name on Card</label>
+               <input type="text" id="cname" class="form-control" name="cardname" placeholder="John More Doe">
+               <label for="ccnum">Credit card number</label>
+               <input type="text" class="form-control" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" >
+               <label for="expmonth">Exp Month</label>
+               <input type="text" class="form-control" id="expmonth" name="expmonth" placeholder="September" >
+
+               <div class="row">
+                 <div class="col-50">
+                   <label for="expyear">Exp Year</label>
+                   <input type="text" id="expyear" name="expyear" placeholder="2018" class="form-control">
+                 </div>
+                 <div class="col-50">
+                   <label for="cvv">CVV</label>
+                   <input type="text" class="form-control" id="cvv" name="cvv" placeholder="352">
+                 </div>
+               </div>
+             </div>
+
   </div>
   <div style="overflow:auto;">
     <div style="float:right;">
@@ -112,7 +138,7 @@
     <span class="step"></span>
     <span class="step"></span>
     <span class="step"></span>
-    <span class="step"></span>
+
   </div>
 </form>
 
@@ -203,14 +229,13 @@ function fixStepIndicator(n) {
     function SetNumberOfCopies(num)
     {
         numberOfCopies = num;
+        GetSubTotal();
+        ShowSubTotal();
     }
 
     function ShowSubTotal()
     {
-        let num = GetSubTotal();
-        let text = num.toString();
-        if(totalPrice!=0)
-            document.getElementById("subtotal").innerHTML = totalPrice;
+        document.getElementById("subtotal").innerHTML = "Sub Total: MWK " +GetSubTotal();
     }
 
     function GetNumberOfCopies()
@@ -218,6 +243,7 @@ function fixStepIndicator(n) {
         var numberInput = document.getElementById("numberofcopies");
 
         numberOfCopies = numberInput.value;
+
     }
 
     function GetCostOfPaperPerMonth(id, price, deliveriesperweek)
@@ -235,7 +261,7 @@ function fixStepIndicator(n) {
            selectedNewspapers= selectedNewspapers-1;
            totalPrice = totalPrice-rate;
         }
-        window.alert(GetSubTotal());
+        ShowSubTotal();
     }
 
     function GetSubscriptionPackage(numOfMonths)
@@ -249,13 +275,13 @@ function fixStepIndicator(n) {
                     else {
                         window.alert("ah haaa" +numOfMonths);
                     }
-           window.alert(GetSubTotal());
+           ShowSubTotal();
     }
 
     function GetSubTotal()
     {
         if(selectedNewspapers!=0)
-            return totalPrice*subscriptionRate*numberOfCopies;
+            return (totalPrice*subscriptionRate)*numberOfCopies;
     }
 
 
